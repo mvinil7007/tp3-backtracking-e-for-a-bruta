@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall -Wextra -Iinclude
 
-SRCS = src/Palestra.cpp src/ArvoreDecisao.cpp src/GerenciadorArquivo.cpp
+SRCS = src/excecoes.cpp src/palestra.cpp src/arvoredecisao.cpp src/gerenciadorarquivo.cpp
 
 all: solucao1 solucao2
 
