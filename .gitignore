@@ -12,4 +12,4 @@ solucao2
 # Arquivos de saída de teste e pacotes de entrega
 saida*.txt
 *.zip
-*.rar
+*.rar*:Zone.Identifier
