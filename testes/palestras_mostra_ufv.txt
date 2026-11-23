@@ -1,0 +1,16 @@
+15 120
+AberturaDoDPI 10 60
+Robotica 30 120
+JogosDigitais 20 90
+InteligenciaArtificial 40 150
+RedesDeComputadores 25 70
+SegurancaDaInformacao 25 100
+ComputacaoGrafica 30 110
+Bioinformatica 35 95
+BancoDeDados 20 65
+EngenhariaDeSoftware 30 85
+ComputacaoQuantica 45 140
+AppsParaCelular 15 75
+MaratonaDeProgramacao 20 80
+Empreendedorismo 15 55
+EticaNaComputacao 10 40

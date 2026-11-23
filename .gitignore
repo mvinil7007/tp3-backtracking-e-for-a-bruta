@@ -1,0 +1,15 @@
+# Executáveis gerados na compilação
+solucao1
+solucao2
+*.exe
+*.out
+
+# Arquivos objeto e temporários
+*.o
+*.obj
+*~
+
+# Arquivos de saída de teste e pacotes de entrega
+saida*.txt
+*.zip
+*.rar
