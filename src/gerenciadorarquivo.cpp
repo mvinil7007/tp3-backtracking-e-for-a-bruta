@@ -22,6 +22,7 @@ std::vector<Palestra> GerenciadorArquivo::lerEntrada(const std::string& caminhoA
     }
 
     std::vector<Palestra> palestras;
+    // Reserva espaço para n palestras para evitar realocações desnecessárias
     palestras.reserve(n);
 
     for (int i = 0; i < n; ++i) {
@@ -38,7 +39,7 @@ std::vector<Palestra> GerenciadorArquivo::lerEntrada(const std::string& caminhoA
         if (duracao <= 0 || publico <= 0) {
             throw EntradaInvalidaException();
         }
-
+        // Adiciona a palestra ao vetor diretamente, evitando criar vetores temporários como em push_back 
         palestras.emplace_back(nome, duracao, publico);
     }
 
@@ -46,32 +47,24 @@ std::vector<Palestra> GerenciadorArquivo::lerEntrada(const std::string& caminhoA
     return palestras;
 }
 
-void GerenciadorArquivo::escreverSaida(const std::string& caminhoArquivo,
-                                       int publicoTotal,
-                                       int tempoTotal,
-                                       const std::vector<std::string>& palestrasEscolhidas,
-                                       int nosCriados) const {
+void GerenciadorArquivo::escreverSaida(const std::string& caminhoArquivo,int publicoTotal,int tempoTotal,
+                                       const std::vector<std::string>& palestrasEscolhidas,int nosCriados) const {
     std::ofstream sair(caminhoArquivo);
     if (!sair.is_open()) {
         throw ArquivoException(caminhoArquivo);
     }
 
-    // Linha 1: publico total
     sair << publicoTotal << "\n";
 
-    // Linha 2: tempo total
     sair << tempoTotal << "\n";
 
-    // Linha 3: nomes das palestras separadas por espaco (ou linha vazia se nenhuma couber)
     for (size_t i = 0; i < palestrasEscolhidas.size(); ++i) {
-        if (i > 0) {
+        if (i > 0)
             sair << " ";
-        }
         sair << palestrasEscolhidas[i];
     }
     sair << "\n";
 
-    // Linha 4: total de nos criados na arvore
     sair << "Nos criados: " << nosCriados << "\n";
 
     sair.close();
