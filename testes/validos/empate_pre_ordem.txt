@@ -1,0 +1,4 @@
+3 30
+PalestraA 30 100
+PalestraB 30 100
+PalestraC 20 80

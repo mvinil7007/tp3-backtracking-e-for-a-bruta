@@ -13,7 +13,7 @@ public:
 // Excecao lancada quando o conteudo do arquivo viola regras ou limites da entrada.
 class EntradaInvalidaException : public std::runtime_error {
 public:
-    explicit EntradaInvalidaException(const std::string& mensagem = "Entrada invalida.");
+    explicit EntradaInvalidaException(const std::string& mensagem = "Erro: arquivo de entrada invalido");
 };
 
 #endif

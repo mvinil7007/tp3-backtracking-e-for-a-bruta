@@ -1,0 +1,3 @@
+2 10
+Robotica 30 120
+JogosDigitais 20 90

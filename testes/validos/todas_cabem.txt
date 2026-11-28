@@ -1,0 +1,4 @@
+3 100
+Robotica 30 120
+JogosDigitais 20 90
+Redes 10 40
