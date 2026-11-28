@@ -1,6 +1,7 @@
 #include "gerenciadorarquivo.hpp"
 #include "excecoes.hpp"
 #include <fstream>
+#include <string>
 
 std::vector<Palestra> GerenciadorArquivo::lerEntrada(const std::string& caminhoArquivo, int& tempoDisponivel) const {
     std::ifstream abrir(caminhoArquivo);
@@ -9,21 +10,22 @@ std::vector<Palestra> GerenciadorArquivo::lerEntrada(const std::string& caminhoA
     }
 
     int n = 0;
+    int tempoLido = 0;
     tempoDisponivel = 0;
 
     // Verifica se n e T puderam ser lidos como numeros inteiros
-    if (!(abrir >> n >> tempoDisponivel)) {
+    if (!(abrir >> n >> tempoLido)) {
         throw EntradaInvalidaException();
     }
 
     // Valida os limites de n (1 a 15) e T (1 a 1000)
-    if (n < 1 || n > 15 || tempoDisponivel < 1 || tempoDisponivel > 1000) {
+    if (n < 1 || n > 15 || tempoLido < 1 || tempoLido > 1000) {
         throw EntradaInvalidaException();
     }
 
     std::vector<Palestra> palestras;
     // Reserva espaço para n palestras para evitar realocações desnecessárias
-    palestras.reserve(n);
+    palestras.reserve(static_cast<size_t>(n));
 
     for (int i = 0; i < n; ++i) {
         std::string nome;
@@ -43,6 +45,7 @@ std::vector<Palestra> GerenciadorArquivo::lerEntrada(const std::string& caminhoA
         palestras.emplace_back(nome, duracao, publico);
     }
 
+    tempoDisponivel = tempoLido;
     abrir.close();
     return palestras;
 }
